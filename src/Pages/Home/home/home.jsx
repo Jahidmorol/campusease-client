@@ -1,10 +1,10 @@
 
-const home = () => {
+const Home = () => {
     return (
         <div>
-            its home page
+           <h2 className="text-5xl text-black">its a home component </h2>
         </div>
     );
 };
 
-export default home;
+export default Home;
