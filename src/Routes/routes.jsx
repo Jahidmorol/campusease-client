@@ -5,7 +5,7 @@ import Colleges from "../Pages/Colleges/Colleges";
 import Admission from "../Pages/Admission/Admission";
 import MyColleges from "../Pages/MyColleges/MyColleges";
 import CollegeDetails from "../Pages/Colleges/CollegeDetails";
-import CandidateForm from "../Pages/Admission/CandidateForm";
+import AdmissionForm from "../Pages/Admission/AdmissionForm";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +34,8 @@ const router = createBrowserRouter([
         loader: () => fetch("/data.json"),
       },
       {
-        path: "/admission/:id",
-        element: <CandidateForm></CandidateForm>,
+        path: "/admission/:collegeName",
+        element: <AdmissionForm></AdmissionForm>,
       },
     ],
   },

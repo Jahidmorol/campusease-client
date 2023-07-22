@@ -20,7 +20,7 @@ const CollegeList = () => {
             <li key={index} className="mb-2">
               {index + 1} ...
               <Link
-                to={`/admission/${index}`}
+                to={`/admission/${college}`}
                 className="text-blue-500 hover:underline"
               >
                 {college}
