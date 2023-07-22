@@ -1,6 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layouts/Main";
 import Home from "../Pages/Home/home/home";
+import Colleges from "../Pages/Colleges/Colleges";
+import Admission from "../Pages/Admission/Admission";
+import MyColleges from "../Pages/MyColleges/MyColleges";
+import CollegeDetails from "../Pages/Colleges/CollegeDetails";
+import CandidateForm from "../Pages/Admission/CandidateForm";
 
 const router = createBrowserRouter([
   {
@@ -10,6 +15,27 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/collages",
+        element: <Colleges></Colleges>,
+      },
+      {
+        path: "/admission",
+        element: <Admission></Admission>,
+      },
+      {
+        path: "/myCollages",
+        element: <MyColleges></MyColleges>,
+      },
+      {
+        path: "/details/:id",
+        element: <CollegeDetails></CollegeDetails>,
+        loader: () => fetch("/data.json"),
+      },
+      {
+        path: "/admission/:id",
+        element: <CandidateForm></CandidateForm>,
       },
     ],
   },

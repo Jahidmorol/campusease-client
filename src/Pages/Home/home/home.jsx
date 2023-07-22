@@ -1,8 +1,11 @@
+import Gallary from "../Gallary/Gallary";
+import PopulerClasses from "../PopulerClasses/PopulerClasses";
 
 const Home = () => {
     return (
         <div>
-           <h2 className="text-5xl text-black">its a home component </h2>
+            <PopulerClasses></PopulerClasses>
+            <Gallary></Gallary>
         </div>
     );
 };
