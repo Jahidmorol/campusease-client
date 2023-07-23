@@ -20,7 +20,7 @@ const CollegeReview = () => {
             candidateName
         }
         console.log(reviewInfo);
-        fetch('https://admission-college-server-studentabusayeed.vercel.app/review', {
+        fetch('http://localhost:5000/review', {
             method: 'POST',
             headers: {
                 "content-type": 'application/json',
@@ -34,7 +34,7 @@ const CollegeReview = () => {
                         title: 'Success!',
                         text: 'Added Successfully',
                         icon: 'success',
-                        confirmButtonText: 'Cool'
+                        confirmButtonText: 'Ok'
                     })
                     setLoading(false);
                 }
