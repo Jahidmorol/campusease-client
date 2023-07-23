@@ -39,15 +39,15 @@ const AdmissionForm = () => {
   };
 
   return (
-    <div className="mx-auto p-4 w-[60%] bg-transparent md:my-8">
+    <div className="mx-auto p-4 md:w-[60%] bg-transparent md:my-8">
       <h2 className="text-2xl text-center mb-8 font-bold ">
         {collegeName} Admission Form
       </h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+        className="grid grid-cols-2 gap-4"
       >
-        <div className="mb-4">
+        <div className="mb-4 col-span-2 md:col-span-1">
           <label htmlFor="candidateName" className="block font-bold">
             Candidate Name:
           </label>
@@ -63,7 +63,7 @@ const AdmissionForm = () => {
             <span className="text-red-500">{errors.candidateName.message}</span>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 col-span-2 md:col-span-1">
           <label htmlFor="subject" className="block font-bold">
             Subject:
           </label>
@@ -77,7 +77,7 @@ const AdmissionForm = () => {
             <span className="text-red-500">{errors.subject.message}</span>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 col-span-2 md:col-span-1">
           <label htmlFor="candidateEmail" className="block font-bold">
             Candidate Email:
           </label>
@@ -99,7 +99,7 @@ const AdmissionForm = () => {
             </span>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 col-span-2 md:col-span-1">
           <label htmlFor="candidatePhone" className="block font-bold">
             Candidate Phone number:
           </label>
@@ -117,7 +117,7 @@ const AdmissionForm = () => {
             </span>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 col-span-2 md:col-span-1">
           <label htmlFor="address" className="block font-bold">
             Address:
           </label>
@@ -131,7 +131,7 @@ const AdmissionForm = () => {
             <span className="text-red-500">{errors.address.message}</span>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 col-span-2 md:col-span-1">
           <label htmlFor="dateOfBirth" className="block font-bold">
             Date of Birth:
           </label>
