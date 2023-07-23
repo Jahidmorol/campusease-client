@@ -3,7 +3,7 @@ import Testimonial from './Testimonial';
 
 const Reviews = () => {
     const [users, setUsers] = useState([]);
-    fetch('/review.json')
+    fetch('http://localhost:5000/review')
         .then(res => res.json())
         .then(data => setUsers(data));
     return (

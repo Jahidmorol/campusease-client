@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import SocialLogin from "../../Sheared/SocialLogin/SocialLogin";
+import img from "../../../assets/Login/login.jpeg"
 
 const SignIn = () => {
-  const { signIn } = useContext(AuthContext);
+  const { logIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -15,7 +17,7 @@ const SignIn = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    signIn(email, password)
+    logIn(email, password)
       .then((result) => {
         const user = result.user;
         navigate(from, { replace: true });

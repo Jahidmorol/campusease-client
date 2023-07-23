@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider';
 
-const CollegeReview = () => {
+const CollegeReview = ({item}) => {
     const { collegeName, address, candidateEmail, candidateName, candidatePhone, dateOfBirth, imgURL, subject, _id } = item;
     const [loading, setLoading] = useState(false);
     const { user } = useContext(AuthContext);

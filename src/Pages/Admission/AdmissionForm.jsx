@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
 const img_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 
 const AdmissionForm = () => {
+  const {user} = useContext(AuthContext)
   const { collegeName } = useParams();
   const [loading, setLoading] = useState(false);
 
@@ -23,19 +26,58 @@ const AdmissionForm = () => {
     formData.append("image", data.image[0]);
 
     fetch(img_hosting_url, {
-        method: "POST",
-        body: formData,
-      })
-        .then((res) => res.json())
-        .then((imgRes) => {
-            if (imgRes.success) {
-                const imgURL = imgRes.data.display_url;
-                console.log(imgURL);
-                setLoading(false);
-                reset();
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgRes) => {
+        if (imgRes.success) {
+          const imgURL = imgRes.data.display_url;
+          console.log(imgURL);
+          const {
+            candidateName,
+            subject,
+            candidateEmail,
+            candidatePhone,
+            address,
+            dateOfBirth,
+          } = data;
+          const studentInfo = {
+            candidateName,
+            subject,
+            candidateEmail,
+            candidatePhone,
+            address,
+            dateOfBirth,
+            imgURL,
+            collegeName,
+            email: user?.email,
+          };
+          fetch(
+            "http://localhost:5000/student",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(studentInfo),
             }
-        })
-
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  title: "Success!",
+                  text: "Added Successfully",
+                  icon: "success",
+                  confirmButtonText: "Ok",
+                });
+                setLoading(false);
+              }
+            });
+        }
+      });
   };
 
   return (

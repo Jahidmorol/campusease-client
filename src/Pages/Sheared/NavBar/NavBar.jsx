@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import './NavBar.css'
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
   return (
     <nav className="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
       <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
@@ -97,7 +102,14 @@ const NavBar = () => {
                 My Collages
               </Link>
             </li>
-            
+            {user?.email ? <>
+            <img className={user.photoURL ? 'img-menu' : ''} title={user?.displayName} src={user?.photoURL
+            } alt="" />
+            <Link onClick={logOut} className='font-bold bg-yellow-700 px-5 rounded-lg flex items-center text-white mx-2 log-btn'>Log out</Link>
+        </> : <>
+            <Link className='font-bold bg-yellow-700 px-5 rounded-lg flex items-center text-white mx-2 log-btn' to="/login">Login</Link>
+            <Link className='font-bold bg-yellow-700 px-5 rounded-lg flex items-center text-white reg-btn mx-2' to="/signup">Sign Up</Link>
+        </>}
             
           </ul>
         </div>

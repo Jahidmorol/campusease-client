@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import CollegeReview from "./CollegeReview";
 
 const MyColleges = () => {
     const [users, setUsers] = useState([]);
