@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 const Classcard = ({d}) => {
     console.log(d);
     return (
-        <div className="card card-compact w-80 bg-base-400 shadow-xl class-img">
+        <div className="card card-compact w-full bg-base-400 shadow-xl class-img">
             {/* <img className="w-full" src={d.college_image} alt={d.college_name} /> */}
             <figure><img src={d.college_image} alt={d.college_name} /></figure>
             <div className="px-6 py-4">

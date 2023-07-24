@@ -1,30 +1,37 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
-import "./Testimonial.css";
 
 const Testimonial = ({ item }) => {
+  const stars = Array.from({ length: item.number }).fill(null);
+
   return (
     <div className="mb-4">
-      <section className="testimonial-section bg-cyan-100">
-        <div>
-          <div className="testimonial">
-            <p className="text-1xl font-semibold p-4 text-success">
-              {item.textarea}
-            </p>
-            <div className="tests flex">
-              <div className="test ml-5">
-                <h4 className="font-semibold text-2xl text-start">
-                  Name: {item.candidateName}
-                </h4>
+      <div className="testimonial-section bg-white rounded p-4 shadow-md border-4 border-[#6fb9b9]">
+        <p className="text-lg text-gray-800 mb-4">{item.textarea}</p>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <img
+              src={item.imgURL}
+              alt="User"
+              className="h-16 w-16 rounded-full mr-4 object-cover"
+            />
+            <div>
+              <h4 className="font-semibold text-xl text-gray-800 mb-2">
+                {item.candidateName}
+              </h4>
+              <div className="flex items-center">
+                <p className="text-lg font-semibold text-yellow-500">
+                  Rating:
+                </p>
+                {stars.map((_, index) => (
+                  <FaStar key={index} className="text-yellow-400 ml-1" />
+                ))}
               </div>
-              <p className="text-1xl font-semibold text-start">
-                Rating: {item.number}
-                <FaStar className="text-warning inline ml-2" />
-              </p>
             </div>
           </div>
+          {/* Add any other content or actions for testimonials */}
         </div>
-      </section>
+      </div>
     </div>
   );
 };

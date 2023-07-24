@@ -17,7 +17,8 @@ const CollegeReview = ({item}) => {
         const reviewInfo = {
             textarea,
             number,
-            candidateName
+            candidateName,
+            imgURL: user.photoURL,
         }
         console.log(reviewInfo);
         fetch('http://localhost:5000/review', {

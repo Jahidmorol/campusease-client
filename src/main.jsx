@@ -5,7 +5,7 @@ import router from "./routes/routes";
 import AuthProvider from "./Providers/AuthProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <div className="max-w-screen-xl mx-auto">
+  <div className="">
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
