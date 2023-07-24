@@ -103,7 +103,7 @@ const Footer = () => {
             </div>
             <hr className="border-[#6fb9b9] mt-2 mb-3" />
             <p className="text-gray-300 text-center">
-              &copy; 2023 Happy Toys Toys. All rights reserved.
+              &copy; 2023 CampusEase . All rights reserved.
             </p>
           </div>
         </footer>

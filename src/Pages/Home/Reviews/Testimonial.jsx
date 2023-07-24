@@ -6,7 +6,7 @@ const Testimonial = ({ item }) => {
 
   return (
     <div className="mb-4">
-      <div className="testimonial-section bg-white rounded p-4 shadow-md border-4 border-[#6fb9b9]">
+      <div className="testimonial-section bg-slate-50 bg-opacity-20 rounded p-4 shadow-md border-4 border-[#6fb9b9]">
         <p className="text-lg text-gray-800 mb-4">{item.textarea}</p>
         <div className="flex items-center justify-between">
           <div className="flex items-center">

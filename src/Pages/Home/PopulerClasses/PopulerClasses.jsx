@@ -27,6 +27,7 @@ const PopulerClasses = () => {
 
   return (
     <div className="bg-slate-100 py-20">
+        <h2 className="text-2xl md:text-4xl font-bold text-center">Popular Collages</h2>
       <div className="w-[95%] md:w-100 mx-auto md:flex items-center justify-center gap-2 my-10">
         <input
           type="text"

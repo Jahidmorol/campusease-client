@@ -3,6 +3,7 @@ import Testimonial from "./Testimonial";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import backgroundImageUrl from "/reveiw.jpg";
 
 const Reviews = () => {
   const [users, setUsers] = useState([]);
@@ -40,15 +41,25 @@ const Reviews = () => {
   };
 
   return (
-    <div className="py-5">
-      <h3 className="text-center font-bold text-2xl md:text-4xl mt-5">Students Reviews</h3>
-      <div className="container mx-auto max-w-2xl mt-10">
+    <div
+      className="py-5 flex items-center justify-center bg-fixed h-screen relative bg-cover bg-center bg-no-repeat bg-slate-300"
+      style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+    >
+      {/* Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40"></div>
+
+        <div className="w-[20rem] md:w-full">
+        <h3 className="text-center font-bold text-2xl md:text-4xl mt-5 text-white relative">
+        Students Reviews
+      </h3>
+      <div className=" mx-auto max-w-2xl mt-10">
         <Slider {...settings}>
           {users.map((item) => (
             <Testimonial key={item.id} item={item} />
           ))}
         </Slider>
       </div>
+        </div>
     </div>
   );
 };
