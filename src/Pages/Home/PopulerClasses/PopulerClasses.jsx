@@ -35,7 +35,7 @@ const PopulerClasses = () => {
           placeholder="Search by college name or admission date"
           className="input  border-2 border-[#6fb9b9]  md:w-[600px] py-2 px-2"
         />
-        <button className="inline-block md:px-12 px-3 ml-2  py-3 text-sm font-medium text-white bg-[#6fb9b9] border border-[#6fb9b9] rounded active:text-violet-500 hover:bg-transparent hover:text-[#6fb9b9] focus:outline-none focus:ring">
+        <button className="inline-block md:px-12 px-3 ml-2  py-3 text-sm font-medium text-white bg-[#6fb9b9] border border-[#6fb9b9] rounded active:text-success hover:bg-transparent hover:text-[#6fb9b9] focus:outline-none focus:ring">
           Find College
         </button>
       </div>

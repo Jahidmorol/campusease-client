@@ -1,8 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Profile = () => {
-    const {user} = useContext(AuthContext)
+    const [users, setUsers] = useState({});
+    const {user} = useContext(AuthContext);
+
+    useEffect(() => {
+        fetch(`https://campusease-server.vercel.app/student?email=${user?.email}`)
+            .then((res) => res.json())
+            .then((result) => {
+                console.log(result);
+                setUsers(result[0]);
+            });
+    }, []);
+
+    console.log(users);
     return (
         <div className='h-screen flex items-center'>
             <div className="bg-gray-500  border-4 border-[#6fb9b9] w-[30%] mx-auto rounded-lg shadow-md p-6 ">
@@ -18,16 +30,16 @@ const Profile = () => {
           </div>
           <div className="mb-4">
             <p className="text-white">
-              <span className="font-semibold">Number:</span> {user.number}
+              <span className="font-semibold">Number:</span> {users.candidatePhone}
             </p>
             <p className="text-white">
               <span className="font-semibold">Email:</span> {user.email}
             </p>
             <p className="text-white">
-              <span className="font-semibold">University:</span> {user.university}
+              <span className="font-semibold">University:</span> {"Harvard University Cambridge"}
             </p>
             <p className="text-white">
-              <span className="font-semibold">Address:</span> {user.address}
+              <span className="font-semibold">Address:</span> {users.address}
             </p>
           </div>
         </div>
