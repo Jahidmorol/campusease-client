@@ -1,116 +1,158 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import './NavBar.css'
 
 const NavBar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   const { user, logOut } = useContext(AuthContext);
 
-  return (
-    <nav className="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
-      <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-        <Link to="" className="flex items-center">
-          <img
-            src="/logoStudy2.png"
-            className=" mr-1 h-6 md:h-10 "
-            alt="CampusEase"
-          />
-          <span className="self-center text-md md:text-xl font-semibold whitespace-nowrap dark:text-white">
-          CampusEase
-          </span>
-        </Link>
-        <div className="flex items-center lg:order-2">
-          <div className="hidden mt-2 mr-4 sm:inline-block">
-            <span></span>
-          </div>
+  const isActiveRoute = (routePath) => {
+    return location.pathname === routePath;
+  };
 
-          <Link
-            href="https://themesberg.com/product/tailwind-css/landing-page"
-            className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
-          >
-            Download
+  return (
+    <nav className="bg-[#6fb9b9] py-4 md:flex justify-between items-center px-4 lg:px-8">
+      <div className="flex items-center justify-between">
+          <Link to="/" className="text-white text-xl font-semibold">
+            <div className="flex items-center gap-1">
+              <img className="w-10 md:w-12" src="/logoStudy2.png" alt="logo" />
+              <h3>CampusEase</h3>
+            </div>
           </Link>
-          <button
-            data-collapse-toggle="mobile-menu-2"
-            type="button"
-            className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="mobile-menu-2"
-            aria-expanded="true"
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-6 h-6"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
+          <div className="ml-3 lg:hidden">
+            <button
+              onClick={handleMenuToggle}
+              className="text-white p-2 focus:outline-none"
+              aria-controls="mobile-menu"
+              aria-expanded={isMenuOpen}
             >
-              <path
-                fillRule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011 1h12a1 1 0 110-2H4a1 1 0 01-1 1z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-            <svg
-              className="hidden w-6 h-6"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </button>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
+      <div className="flex items-center">
         <div
-          className="items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
-          id="mobile-menu-2"
+          className={`${
+            isMenuOpen ? "block" : "hidden"
+          } lg:flex lg:w-auto mt-4 lg:mt-0`}
+          id="mobile-menu"
         >
-          <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+          <ul className="flex flex-col gap-2 md:gap-0  lg:text-left lg:flex-row lg:space-x-8 lg:items-center">
             <li>
               <Link
                 to="/"
-                className="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
-                aria-current="page"
+                onClick={closeMenu}
+                className={`text-white hover:text-gray-300 ${
+                  isActiveRoute("/") ? "font-bold" : ""
+                }`}
               >
                 Home
               </Link>
             </li>
             <li>
               <Link
-                to="collages"
-                className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                to="/collages"
+                onClick={closeMenu}
+                className={`text-white hover:text-gray-300 ${
+                  isActiveRoute("/collages") ? "font-bold" : ""
+                }`}
               >
                 Collages
               </Link>
             </li>
             <li>
               <Link
-                to="admission"
-                className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                to="/admission"
+                onClick={closeMenu}
+                className={`text-white hover:text-gray-300 ${
+                  isActiveRoute("/admission") ? "font-bold" : ""
+                }`}
               >
                 Admission
               </Link>
             </li>
             <li>
               <Link
-                to="myCollages"
-                className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                to="/myCollages"
+                onClick={closeMenu}
+                className={`text-white hover:text-gray-300 ${
+                  isActiveRoute("/myCollages") ? "font-bold" : ""
+                }`}
               >
                 My Collages
               </Link>
             </li>
-            {user?.email ? <>
-            <img className={user.photoURL ? 'img-menu' : ''} title={user?.displayName} src={user?.photoURL
-            } alt="" />
-            <Link onClick={logOut} className='font-bold bg-yellow-700 px-5 rounded-lg flex items-center text-white mx-2 log-btn'>Log out</Link>
-        </> : <>
-            <Link className='font-bold bg-yellow-700 px-5 rounded-lg flex items-center text-white mx-2 log-btn' to="/login">Login</Link>
-            <Link className='font-bold bg-yellow-700 px-5 rounded-lg flex items-center text-white reg-btn mx-2' to="/signup">Sign Up</Link>
-        </>}
-            
+            {user?.email ? (
+              <>
+                <Link to="/profile">
+                  <li className="flex items-center">
+                    {user.photoURL && (
+                      <img
+                        className="h-8 w-8 rounded-full mr-2"
+                        title={user.displayName}
+                        src={user.photoURL}
+                        alt=""
+                      />
+                    )}
+                    <span className="text-white hover:text-gray-300">
+                      {user.displayName}
+                    </span>
+                  </li>
+                </Link>
+                <li>
+                  <button
+                    onClick={logOut}
+                    className="text-white font-semibold hover:text-gray-300"
+                  >
+                    Log out
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link
+                    to="/login"
+                    onClick={closeMenu}
+                    className="text-white font-semibold hover:text-gray-300"
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/signup"
+                    onClick={closeMenu}
+                    className="text-white font-semibold hover:text-gray-300"
+                  >
+                    Sign Up
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
