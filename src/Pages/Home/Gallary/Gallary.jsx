@@ -17,8 +17,8 @@ const Gallary = () => {
     // }, []);
   
     return (
-      <div className="bg-[#80BD9E] py-16">
-          <h2 className="text-4xl text-center font-bold mb-6 text-black">New Arrivals</h2>
+      <div className="bg-[#6fb9b9] py-16">
+          <h2 className="text-4xl text-center font-bold mb-6 text-white">New Collages</h2>
         <div className="grid md:grid-cols-2 gap-3 gap-x-0 lg:grid-cols-3 w-[70%] mx-auto">
           {images.map((img, index) => (
             <div

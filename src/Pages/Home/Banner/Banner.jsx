@@ -7,7 +7,7 @@ import slide4 from "../../../assets/banner/banner.png";
 
 const Banner = () => {
   return (
-    <div className="carousel w-full md:h-[650px]">
+    <div className="carousel w-full h-[500px] md:h-[650px]">
         <div id="slide1" className="carousel-item relative w-full">
             <img src={slide1} className="w-full" />
             <div className="absolute flex items-center h-full left-0 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">

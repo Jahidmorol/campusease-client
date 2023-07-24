@@ -27,14 +27,14 @@ const PopulerClasses = () => {
 
   return (
     <div className="bg-slate-100 py-20">
-      <div className="md:flex items-center justify-center gap-2 my-10">
+      <div className="w-[95%] md:w-100 mx-auto md:flex items-center justify-center gap-2 my-10">
         <input
           type="text"
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search by college name or admission date"
           className="input  border-2 border-[#6fb9b9]  md:w-[600px] py-2 px-2"
         />
-        <button className="inline-block px-12 py-3 text-sm font-medium text-white bg-[#6fb9b9] border border-[#6fb9b9] rounded active:text-violet-500 hover:bg-transparent hover:text-[#6fb9b9] focus:outline-none focus:ring">
+        <button className="inline-block md:px-12 px-3 ml-2  py-3 text-sm font-medium text-white bg-[#6fb9b9] border border-[#6fb9b9] rounded active:text-violet-500 hover:bg-transparent hover:text-[#6fb9b9] focus:outline-none focus:ring">
           Find College
         </button>
       </div>

@@ -13,7 +13,7 @@ const Classcard = ({d}) => {
                 <p className="text-gray-700 text-base mb-2 ">Events: {d.events.map((singled, index) => <ul className=" text-[13px] inline-block" key={index}> {singled},</ul>)}</p>
                 {/* </div> */}
                 <p className="text-gray-700 text-base mb-4">Research History: {d.research_history}</p>
-                <Link to={`/details/${d.id}`}><button className='btn btn-success text-slate-100 mt-2'>Details</button></Link>
+                <Link to={`/details/${d.id}`}><button className='text-sm font-medium py-2 px-5 text-white bg-[#6fb9b9] border border-[#6fb9b9] rounded active:text-violet-500 hover:bg-transparent hover:text-[#6fb9b9] focus:outline-none focus:ring mt-2'>Details</button></Link>
             </div>
         </div>
     );
