@@ -15,7 +15,7 @@ const Banner = () => {
                     <h2 className='text-4xl font-bold'>Harvard University Cambridge</h2>
                     <p>Harvard University is the oldest university in the United States.</p>
                     <div>
-                        <button className="btn btn-success mr-5">More Information</button>
+                        <button className="btn py-3 text-sm font-medium text-white bg-[#6fb9b9] border border-[#6fb9b9] rounded active:text-violet-500 hover:bg-transparent hover:text-[#6fb9b9] focus:outline-none focus:ring mr-5">More Information</button>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@ const Banner = () => {
                     <h2 className='text-4xl font-bold'>Arizona State University Tempe</h2>
                     <p>Arizona State University's ranking in the 2022-2023 edition of Best Colleges is National Universities.</p>
                     <div>
-                        <button className="btn btn-success mr-5">More Information</button>
+                        <button className="btn py-3 text-sm font-medium text-white bg-[#6fb9b9] border border-[#6fb9b9] rounded active:text-violet-500 hover:bg-transparent hover:text-[#6fb9b9] focus:outline-none focus:ring mr-5">More Information</button>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@ const Banner = () => {
                     <h2 className='text-4xl font-bold'>Northeastern University Boston</h2>
                     <p>Northeastern University is home to one of the largest international student communities in the United States.</p>
                     <div>
-                        <button className="btn btn-success mr-5">More Information</button>
+                        <button className="btn py-3 text-sm font-medium text-white bg-[#6fb9b9] border border-[#6fb9b9] rounded active:text-violet-500 hover:bg-transparent hover:text-[#6fb9b9] focus:outline-none focus:ring mr-5">More Information</button>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@ const Banner = () => {
                     <h2 className='text-4xl font-bold'>Stanford University Stanford</h2>
                     <p>The primary criterion for admission to Stanford is academic excellence.</p>
                     <div>
-                        <button className="btn btn-success mr-5">More Information</button>
+                        <button className="btn py-3 text-sm font-medium text-white bg-[#6fb9b9] border border-[#6fb9b9] rounded active:text-violet-500 hover:bg-transparent hover:text-[#6fb9b9] focus:outline-none focus:ring mr-5">More Information</button>
                     </div>
                 </div>
             </div>

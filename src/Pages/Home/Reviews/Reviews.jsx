@@ -41,7 +41,7 @@ const Reviews = () => {
 
   return (
     <div className="py-5">
-      <h3 className="text-center font-bold text-2xl">Customer Testimonials</h3>
+      <h3 className="text-center font-bold text-2xl md:text-4xl mt-5">Students Reviews</h3>
       <div className="container mx-auto max-w-2xl mt-10">
         <Slider {...settings}>
           {users.map((item) => (
