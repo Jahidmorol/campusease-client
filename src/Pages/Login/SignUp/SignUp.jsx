@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import login from "../../../assets/Login/signUp.jpeg"
+import login from "../../../assets/Login/signUp.jpeg";
 import SocialLogin from "../../Sheared/SocialLogin/SocialLogin";
 
 const SignUp = () => {

@@ -8,7 +8,7 @@ const Reviews = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/review")
+    fetch("https://campusease-server.vercel.app/review")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);

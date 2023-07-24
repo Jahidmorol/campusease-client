@@ -54,7 +54,7 @@ const AdmissionForm = () => {
             email: user?.email,
           };
           fetch(
-            "http://localhost:5000/student",
+            "https://campusease-server.vercel.app/student",
             {
               method: "POST",
               headers: {

@@ -21,7 +21,7 @@ const CollegeReview = ({item}) => {
             imgURL: user.photoURL,
         }
         console.log(reviewInfo);
-        fetch('http://localhost:5000/review', {
+        fetch('https://campusease-server.vercel.app/review', {
             method: 'POST',
             headers: {
                 "content-type": 'application/json',

@@ -9,11 +9,14 @@ import AdmissionForm from "../Pages/Admission/AdmissionForm";
 import SignIn from "../Pages/Login/SignIn/SignIn";
 import SignUp from "../Pages/Login/SignUp/SignUp";
 import Profile from "../Pages/Profile/Profile";
+import PrivatetRoutes from "./PrivatetRoutes";
+import Error from "../Pages/Sheared/ErrorPage/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -33,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <CollegeDetails></CollegeDetails>,
+        element: <PrivatetRoutes><CollegeDetails></CollegeDetails></PrivatetRoutes>,
         loader: () => fetch("/data.json"),
       },
       {
